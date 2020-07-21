@@ -1,3 +1,5 @@
+console.log('it is connected!')
+
 /* breaking it down to smallest pictures and scopes
 what kind of function or actions need?
 after game start and user read through welcome message
