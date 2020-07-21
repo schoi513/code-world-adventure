@@ -1,5 +1,66 @@
 console.log('it is connected!')
 
+const textElement = document.getElementById('text');
+const optionButtonsElement = document.getElementById('options');
+
+let state = {}
+
+function start(){
+    showText(1)
+    state = {}
+}
+
+function showText (showTextIndex){
+    const textBank = textBanks.find(textBank => textBank.id === showBankIndex)
+    textElement.innerText = textBank.text
+    while (optionButtonsElement.firstChild){
+        optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+    }
+    textBank.options.forEach(option => {
+        if (showOption(option)){
+            const button = document.createElement('button')
+            button.innnerText = option.text
+            button.classList.add('clicks')
+            button.addEventListener('click', () => selectOption(option))
+            optionButtonsElement.appendChild(button)
+        }
+    })
+}
+
+function showOption(option){
+    return true;
+}
+
+function selectOption(option) {
+    const nextTextBank = option.nextText
+    if (nextTextBank <= 0){
+        return start()
+    }
+    state = Object.assign(state, option.setState)
+    showText(nextTextBank)
+}
+
+const textBanks = [
+    {
+        id: 1, 
+        text:'You just graduated GA SEI and wanted to kick start your new career by teaching coding via Youtube. Now can you navigate through the world of Youtube?',
+        options: [
+            {
+                text: 'buy items for streaming',
+                setState: { items: true},
+                nextText: 2
+            },
+            {
+                text:'tell your fellow cohorts about it',
+                
+                nextText: 2
+            }
+        ]
+    }
+]
+
+start();
+
 /* breaking it down to smallest pictures and scopes
 what kind of function or actions need?
 after game start and user read through welcome message
