@@ -11,24 +11,28 @@ function start(){
 }
 
 function showText (showTextIndex){
-    const textBank = textBanks.find(textBank => textBank.id === showBankIndex)
+    const textBank = textBanks.find(textBank => textBank.id === showTextIndex)
+    // console.log(textBank);
     textElement.innerText = textBank.text
+    console.log(textBank.text)
     while (optionButtonsElement.firstChild){
         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
+
     textBank.options.forEach(option => {
         if (showOption(option)){
             const button = document.createElement('button')
             button.innnerText = option.text
             button.classList.add('clicks')
             button.addEventListener('click', () => selectOption(option))
+            console.log(selectOption)
             optionButtonsElement.appendChild(button)
         }
     })
 }
 
 function showOption(option){
-    return true;
+    return option.requiredState == null || option.requiredState(state)
 }
 
 function selectOption(option) {
@@ -43,18 +47,32 @@ function selectOption(option) {
 const textBanks = [
     {
         id: 1, 
-        text:'You just graduated GA SEI and wanted to kick start your new career by teaching coding via Youtube. Now can you navigate through the world of Youtube?',
+        text:'You got a streaming device as a gift from a friend. What will you do?',
         options: [
             {
-                text: 'buy items for streaming',
-                setState: { items: true},
+                text: 'Keep the device and stream away',
+                setState: { device: true, cash: false},
                 nextText: 2
             },
             {
-                text:'tell your fellow cohorts about it',
-                
+                text:'Im not into it, return device for cash',
+                setState: {device: false, cash: true},
                 nextText: 2
             }
+        ]
+    },
+    {
+        id: 2,
+        text: 'Online coding has became a thing, will you jump ',
+        options: [
+            {
+                text: 'Use the viewbot',
+                
+            },
+            {
+                text: 'aaaaaa',
+            }
+
         ]
     }
 ]
