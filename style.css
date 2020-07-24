@@ -1,6 +1,4 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+
 
 body {
     padding: 0;
@@ -22,7 +20,7 @@ body {
     padding: 15px;
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px;
-    position: absolute;
+    position: relative;
 }
 
 .clickable-buttons {
