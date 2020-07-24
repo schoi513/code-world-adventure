@@ -31,7 +31,7 @@ body {
     gap: 10px;
     margin-top: 20px;
     position: relative;
-    opacity: 0.2;
+    
 }
  
 .clicks {
@@ -42,6 +42,6 @@ body {
     color: white;
     height: 100px;
     position: relative;
-    opacity: 0.2;
+    
 }
 

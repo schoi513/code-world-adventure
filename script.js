@@ -2,37 +2,126 @@ console.log('it is connected!')
 
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('options');
+const textBanks = [
+    {
+        id: 1, 
+        text:'You got a streaming device as a gift from a friend. What will you do?',
+        options: [
+            {
+                text: 'Keep the device and stream away',
+                // setState: { device: true, cash: false},
+                nextText: 2
+            },
+            {
+                text:'Im not into it, return device for cash',
+                // setState: {device: false, cash: true},
+                nextText: 2
+            }
+        ]
+    },
+    {
+        id: 2,
+        text: 'Online coding has became a thing, will you jump ',
+        options: [
+            {
+                text: 'Use the viewbot',
+                nextText: 3
+                
+            },
+            {
+                text: 'aaaaaa',
+                nextText:3
+            }
+
+        ]
+    },
+    {
+        id: 3,
+        text: 'aaaaaaaa',
+        options: [
+            {
+                text: 'bbbbbbb',
+                nextText: 4
+            },
+            {
+                text: 'bbbbbb',
+                nextText: 4
+            },
+            {
+                text: 'bbbbbb',
+                nextText: 4
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: 'cccccc',
+        options: [
+            {
+                text: 'cccccccccc',
+                nextText: 5
+            },
+            {
+                text: 'ccccccc,',
+                nextText: 5
+            }
+        ]
+    },
+    {
+        id: 5,
+        text: 'ddddd',
+        options:[
+            {
+                text: 'eeeee',
+                nextText: 6
+            },
+            {
+                text: 'eeeeee',
+                nextText: 7
+            },
+            {
+                text: 'eeeeee',
+                nextText: 8,
+            }
+        ]  
+    },
+    {
+        id: 6,
+        text: 'fffffffffff',
+        options: [
+            {
+                text: 'gggggg',
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: 'eeeeee',
+        options: [
+            {
+                text: 'ggggg',
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 8,
+        text: 'eeeee',
+        options: [
+            {
+                text: 'ggggg',
+                nextText: -1
+            }
+        ]
+    }
+]
 
 let state = {}
 
-function start(){
-    showText(1)
-    state = {}
-}
-
-function showText (showTextIndex){
-    const textBank = textBanks.find(textBank => textBank.id === showTextIndex)
-    // console.log(textBank);
-    textElement.innerText = textBank.text
-    console.log(textBank.text)
-    while (optionButtonsElement.firstChild){
-        optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-    }
-
-    textBank.options.forEach(option => {
-        if (showOption(option)){
-            const button = document.createElement('button')
-            button.innnerText = option.text
-            button.classList.add('clicks')
-            button.addEventListener('click', () => selectOption(option))
-            console.log(selectOption)
-            optionButtonsElement.appendChild(button)
-        }
-    })
-}
-
 function showOption(option){
-    return option.requiredState == null || option.requiredState(state)
+    return option;
+    //option.requiredState === null || option.requiredState(state)
 }
 
 function selectOption(option) {
@@ -44,38 +133,31 @@ function selectOption(option) {
     showText(nextTextBank)
 }
 
-const textBanks = [
-    {
-        id: 1, 
-        text:'You got a streaming device as a gift from a friend. What will you do?',
-        options: [
-            {
-                text: 'Keep the device and stream away',
-                setState: { device: true, cash: false},
-                nextText: 2
-            },
-            {
-                text:'Im not into it, return device for cash',
-                setState: {device: false, cash: true},
-                nextText: 2
-            }
-        ]
-    },
-    {
-        id: 2,
-        text: 'Online coding has became a thing, will you jump ',
-        options: [
-            {
-                text: 'Use the viewbot',
-                
-            },
-            {
-                text: 'aaaaaa',
-            }
-
-        ]
+function showText (showTextIndex){
+    const textBankObj = textBanks.find(textBank => textBank.id === showTextIndex)
+    // console.log(textBank);
+    textElement.innerText = textBankObj.text
+    //console.log(textBankObj.text)
+    while (optionButtonsElement.firstChild){
+        optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
-]
+
+    textBankObj.options.forEach(option => {
+        if (showOption(option)){
+            const button = document.createElement('button')
+            button.innerText = option.text
+            button.classList.add('clicks')
+            button.addEventListener('click', () => selectOption(option))
+            console.log(option)
+            optionButtonsElement.appendChild(button)
+        }
+    })
+}
+
+function start(){
+    showText(1)
+    state = {}
+}
 
 start();
 
