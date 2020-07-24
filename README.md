@@ -1,15 +1,15 @@
-# Project-Youtube-Tycoon
+# Project-Code-World-Adventure
 
-*** Samuel Choi / 7/19/20 ***
+*** Samuel Choi / 7/24/20 ***
 
-# [Youtube Tycoon] Proposal
+# [Code World Adventure] Proposal
 
-## What is [Youtube Tycoon]?
+## What is [Code World Adventure]?
 
-Youtube Tycoon is web based onclick button event game that is based on javascript.
-I am makng this game because I used to stream part time during my college and personally even though I
-was passionate about it but I never acted upon it so I wanted to at least make it on javascript project! 
-Also lots of free games that gets popular on mobile apps like based on onclicks and easy going to keep the time pass by. 
+Code World Adventure is web based onclick button event game that is based on javascript.
+I am makng this game because I loved the story based onclick event games.
+I was working on onclick tycoon game but switched gear to make it more sense in regards.I talked to my team lead about the switch.
+The story is based on our GA cohorts and it has choices regarding our learning material so this was very enjoyable.
 
 ## Wireframe
 
@@ -40,6 +40,7 @@ how I can make complete random interactive buttons and its chain of events to ma
 ## Links and Resources
 
 interactive mobile game apps using javascript on youtube
-tycoon games regarding materials on other githubs
+javascript web based games regarding materials on other githubs
+how to make interactive background using javacript on youtube and google
 
 
