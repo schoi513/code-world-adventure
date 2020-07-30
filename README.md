@@ -13,7 +13,8 @@ The story is based on our GA cohorts and it has choices regarding our learning m
 
 ## Wireframe
 
-Add image
+![alt text](https://i.imgur.com/V61ZJbt.jpg)
+![alt text](https://i.imgur.com/bMKBdVQ.jpg)
 
 ## Initial thoughts on game structure
 
